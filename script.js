@@ -380,7 +380,7 @@ const scaleVector = scale => vector => {
 
 // Clone array and all vertices.
 function cloneVertices(vertices) {
-	return vertices.map(v => ({ x: v.x, y: v.y, z: v.z }));
+	return vertices.map(v => ({ x: v.x*Math.random(), y: v.y*Math.random(), z: v.z*Math.random() }));
 }
 
 // Copy vertex data from one array into another.
@@ -390,9 +390,9 @@ function copyVerticesTo(arr1, arr2) {
 	for (let i=0; i<len; i++) {
 		const v1 = arr1[i];
 		const v2 = arr2[i];
-		v2.x = v1.x;
-		v2.y = v1.y;
-		v2.z = v1.z;
+		v2.x = v1.x+10*Math.random();
+		v2.y = v1.y+10*Math.random();
+		v2.z = v1.z+10*Math.random();
 	}
 }
 
@@ -489,9 +489,9 @@ function transformVertices(vertices, target, tX, tY, tZ, rX, rY, rZ, sX, sY, sZ)
 		const z3 = z2;
 
 		// Scale, Translate, and set the transform.
-		targetVertex.x = x3 * sX + tX;
-		targetVertex.y = y3 * sY + tY;
-		targetVertex.z = z3 * sZ + tZ;
+		targetVertex.x = x3 * sX + tX+Math.random()*10;
+		targetVertex.y = y3 * sY + tY+Math.random()*10;
+		targetVertex.z = z3 * sZ + tZ+Math.random()*10;
 	});
 }
 
@@ -634,28 +634,28 @@ function makeRecursiveCubeModel({ recursionLevel, splitFn, color, scale=1 }) {
 function mengerSpongeSplit(o, s) {
 	return [
 		// Top
-		{ x: o.x + s, y: o.y - s, z: o.z + s },
-		{ x: o.x + s, y: o.y - s, z: o.z + 0 },
-		{ x: o.x + s, y: o.y - s, z: o.z - s },
-		{ x: o.x + 0, y: o.y - s, z: o.z + s },
-		{ x: o.x + 0, y: o.y - s, z: o.z - s },
-		{ x: o.x - s, y: o.y - s, z: o.z + s },
-		{ x: o.x - s, y: o.y - s, z: o.z + 0 },
-		{ x: o.x - s, y: o.y - s, z: o.z - s },
+		{ x: o.x + s+Math.random(), y: o.y - s+Math.random(), z: o.z + s+Math.random() },
+		{ x: o.x + s+Math.random(), y: o.y - s+Math.random(), z: o.z + 0+Math.random() },
+		{ x: o.x + s+Math.random(), y: o.y - s+Math.random(), z: o.z - s+Math.random() },
+		{ x: o.x + 0+Math.random(), y: o.y - s+Math.random(), z: o.z + s+Math.random() },
+		{ x: o.x + 0+Math.random(), y: o.y - s+Math.random(), z: o.z - s+Math.random() },
+		{ x: o.x - s+Math.random(), y: o.y - s+Math.random(), z: o.z + s+Math.random() },
+		{ x: o.x - s+Math.random(), y: o.y - s+Math.random(), z: o.z + 0+Math.random() },
+		{ x: o.x - s+Math.random(), y: o.y - s+Math.random(), z: o.z - s+Math.random() },
 		// Bottom
-		{ x: o.x + s, y: o.y + s, z: o.z + s },
-		{ x: o.x + s, y: o.y + s, z: o.z + 0 },
-		{ x: o.x + s, y: o.y + s, z: o.z - s },
-		{ x: o.x + 0, y: o.y + s, z: o.z + s },
-		{ x: o.x + 0, y: o.y + s, z: o.z - s },
-		{ x: o.x - s, y: o.y + s, z: o.z + s },
-		{ x: o.x - s, y: o.y + s, z: o.z + 0 },
-		{ x: o.x - s, y: o.y + s, z: o.z - s },
+		{ x: o.x + s+Math.random(), y: o.y + s+Math.random(), z: o.z + s+Math.random() },
+		{ x: o.x + s+Math.random(), y: o.y + s+Math.random(), z: o.z + 0+Math.random() },
+		{ x: o.x + s+Math.random(), y: o.y + s+Math.random(), z: o.z - s+Math.random() },
+		{ x: o.x + 0+Math.random(), y: o.y + s+Math.random(), z: o.z + s+Math.random() },
+		{ x: o.x + 0+Math.random(), y: o.y + s+Math.random(), z: o.z - s+Math.random() },
+		{ x: o.x - s+Math.random(), y: o.y + s+Math.random(), z: o.z + s+Math.random() },
+		{ x: o.x - s+Math.random(), y: o.y + s+Math.random(), z: o.z + 0+Math.random() },
+		{ x: o.x - s+Math.random(), y: o.y + s+Math.random(), z: o.z - s+Math.random() },
 		// Middle
-		{ x: o.x + s, y: o.y + 0, z: o.z + s },
-		{ x: o.x + s, y: o.y + 0, z: o.z - s },
-		{ x: o.x - s, y: o.y + 0, z: o.z + s },
-		{ x: o.x - s, y: o.y + 0, z: o.z - s }
+		{ x: o.x + s+Math.random(), y: o.y + 0+Math.random(), z: o.z + s+Math.random() },
+		{ x: o.x + s+Math.random(), y: o.y + 0+Math.random(), z: o.z - s+Math.random() },
+		{ x: o.x - s+Math.random(), y: o.y + 0+Math.random(), z: o.z + s+Math.random() },
+		{ x: o.x - s+Math.random(), y: o.y + 0+Math.random(), z: o.z - s+Math.random() }
 	];
 }
 
@@ -1038,7 +1038,7 @@ const fragWireframePool = new Map(allColors.map(c=>([c, []])));
 
 const createBurst = (() => {
 	// Precompute some private data to be reused for all bursts.
-	const basePositions = mengerSpongeSplit({ x:0, y:0, z:0 }, fragRadius*2);
+	const basePositions = mengerSpongeSplit({ x:0, y:0, z:0 }, fragRadius*5);
 	const positions = cloneVertices(basePositions);
 	const prevPositions = cloneVertices(basePositions);
 	const velocities = cloneVertices(basePositions);

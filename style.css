@@ -1,7 +1,7 @@
 body {
 	margin: 0;
 	background-color: #000;
-	background-image: radial-gradient(ellipse at top, #335476 0.0%, #31506e 11.1%, #304b67 22.2%, #2f4760 33.3%, #2d4359 44.4%, #2c3f51 55.6%, #2a3a4a 66.7%, #293643 77.8%, #28323d 88.9%, #262e36 100.0%);
+	
 	height: 100vh;
 	overflow: hidden;
 
@@ -9,6 +9,16 @@ body {
 	font-weight: bold;
 	letter-spacing: 0.06em;
 	color: rgba(255, 255, 255, 0.75);
+	animation: identifier 5s infinite linear;
+}
+
+@keyframes identifier {
+	0%, 100% {
+		background-image: radial-gradient(ellipse at top, #335476 0.0%, #31506e 11.1%, #304b67 22.2%, #2f4760 33.3%, #2d4359 44.4%, #2c3f51 55.6%, #2a3a4a 66.7%, #293643 77.8%, #28323d 88.9%, #262e36 100.0%);
+	}
+	50% {
+		background-image: radial-gradient(ellipse at top, #647633 0.0%, #656e31 11.1%, #616730 22.2%, #59602f 33.3%, #58592d 44.4%, #4f512c 55.6%, #464a2a 66.7%, #3e4329 77.8%, #383d28 88.9%, #333626 100.0%);
+	}
 }
 
 #c {
