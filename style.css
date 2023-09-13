@@ -1,6 +1,9 @@
 body {
 	margin: 0;
-	background-color: #000;
+	background-image: url(./fondo.jpg);
+
+	background-repeat: no-repeat;
+	background-size: cover;
 	
 	height: 100vh;
 	overflow: hidden;
@@ -8,8 +11,8 @@ body {
 	font-family: monospace;
 	font-weight: bold;
 	letter-spacing: 0.06em;
-	color: rgba(255, 255, 255, 0.75);
-	animation: identifier 5s infinite linear;
+	/* background-color: rgba(0, 0, 0, 0.458); */
+	/* animation: identifier 5s infinite linear; */
 }
 
 @keyframes identifier {
@@ -19,6 +22,26 @@ body {
 	50% {
 		background-image: radial-gradient(ellipse at top, #647633 0.0%, #656e31 11.1%, #616730 22.2%, #59602f 33.3%, #58592d 44.4%, #4f512c 55.6%, #464a2a 66.7%, #3e4329 77.8%, #383d28 88.9%, #333626 100.0%);
 	}
+}
+
+.volumen-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #00000000;
+	color: white;
+	position: absolute;
+	top: 100px;
+	right: 0;
+	z-index: 100;
+}
+.volumen-container>h4{
+	font-size: 1rem;
+	text-align: center;
+	background-color: #00000074;
+	padding: 10px;
+	border-radius: 6px;
 }
 
 #c {

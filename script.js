@@ -6,6 +6,9 @@
 // Most of this should be configuration.
 
 // Timing multiplier for entire game engine.
+const tema = new Audio('tetris.mp3');
+const volumen = document.querySelector('#volumen');
+
 let gameSpeed = 1;
 
 // Colors
@@ -1869,7 +1872,8 @@ function draw(ctx, width, height, viewScale) {
 	ctx.lineJoin = 'bevel';
 
 	PERF_START('drawShadows');
-	ctx.fillStyle = shadowColor;
+	ctx.fillStyle = 'rgba(0, 0, 0, 0.158)';
+	// ctx.globalAlpha = 0.4;
 	ctx.strokeStyle = shadowColor;
 	allShadowPolys.forEach(p => {
 		if (p.wireframe) {
@@ -1975,7 +1979,7 @@ function draw(ctx, width, height, viewScale) {
 	// Touch Strokes
 	// ---------------
 
-	ctx.strokeStyle = touchTrailColor;
+	ctx.strokeStyle = Math.random() < 0.5 ? 'yellow' : 'red';
 	const touchPointCount = touchPoints.length;
 	for (let i=1; i<touchPointCount; i++) {
 		const current = touchPoints[i];
@@ -2185,3 +2189,18 @@ if ('PointerEvent' in window) {
 // ============================================================================
 
 setupCanvases();
+
+document.querySelector('body').addEventListener('click', () => {
+	tema.play();
+	tema.loop = true;
+	setInterval(() => {
+		tema.volume = parseFloat(volumen.value);
+	}, 100);
+});
+
+function shingetti(){
+	const random = parseInt(Math.random()*3);
+	const shingeti= document.getElementById("shingetti");
+	shingeti.style.filter = `blur(${random}px)`;
+}
+setInterval(shingetti,100);
